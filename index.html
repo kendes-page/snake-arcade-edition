@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>SNAKE — NEON ARCADE</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.png">
+  <!-- Inline fallback for environments that can't load separate files -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAZ0lEQVR42mNgYeH/P5CYYVA5gOH/fLIwIb0w8/8z5KHgEeCAK//BGJvldA+BAXcAejTQJxEiRcGgyAVDuxwYdcCoA0YdMNoeoKQkxBeaow4YdcCoAxhGRMeE4UQFCh51wMhzwKCuDQEuVb0caYICjwAAAABJRU5ErkJggg==">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- INTRO PAGE -->
+  <div class="page" id="introPage">
+    <div id="introBg"></div>
+    <div class="intro-content">
+      <h1 class="title-glitch" data-text="SNAKE">SNAKE</h1>
+      <p class="subtitle">NEON &nbsp; ARCADE &nbsp; EDITION</p>
+      <canvas id="introCanvas" width="300" height="80"></canvas>
+      <div class="menu-buttons">
+        <button class="menu-btn" id="btnPlaySnake">&#9654; &nbsp; PLAY SNAKE</button>
+      </div>
+    </div>
+    <div class="intro-footer">© NEON ARCADE &nbsp;|&nbsp; TAP OR PRESS ANY KEY &nbsp;|&nbsp; 2026</div>
+  </div>
+
+  <!-- GAME PAGE -->
+  <div class="page hidden" id="gamePage">
+    <button class="home-btn" id="gameHomeBtn">&#8962; HOME</button>
+
+    <div class="hud">
+      <div><span>SCORE </span><strong id="scoreVal">000</strong></div>
+      <div><span>BEST &nbsp;</span><strong id="bestVal">000</strong></div>
+      <div><span>LEVEL </span><strong id="levelVal">01</strong></div>
+    </div>
+
+    <div class="arena" id="arena">
+      <canvas id="gameCanvas"></canvas>
+
+      <div class="g-overlay" id="gOverlay">
+        <h2 id="oTitle">READY?</h2>
+        <p class="msg" id="oMsg">SWIPE OR USE D-PAD TO MOVE</p>
+        <p class="star" id="oStar" style="display:none"></p>
+        <div class="btn-row">
+          <button class="g-btn green" id="btnStart">PLAY</button>
+          <button class="g-btn blue"  id="btnGameHome">HOME</button>
+        </div>
+      </div>
+
+      <div class="g-overlay" id="confirmOverlay" style="display:none">
+        <h2 class="confirm-title">RESTART?</h2>
+        <p class="msg">Your progress will be lost.</p>
+        <div class="btn-row">
+          <button class="g-btn red"  id="btnConfirmYes">YES</button>
+          <button class="g-btn blue" id="btnConfirmNo">NO</button>
+        </div>
+      </div>
+
+      <div class="g-overlay" id="countdownOverlay" style="display:none">
+        <div class="countdown-num" id="countdownNum">3</div>
+      </div>
+    </div>
+
+    <div class="ctrl-hint" id="ctrlHint">
+      ARROWS / WASD MOVE &nbsp;|&nbsp; P PAUSE &nbsp;|&nbsp; R RESTART &nbsp;|&nbsp; SWIPE
+    </div>
+
+    <div class="settings-bar" id="settingsBar">
+      <label>Speed</label>
+      <div class="speed-presets">
+        <button class="spd-btn"        data-speed="0.5">SLOW</button>
+        <button class="spd-btn active" data-speed="1"  >NORM</button>
+        <button class="spd-btn"        data-speed="1.5">FAST</button>
+        <button class="spd-btn"        data-speed="2.2">TURBO</button>
+      </div>
+    </div>
+
+    <!-- D-pad: shown on touch devices via JS -->
+    <div class="dpad" id="dpad">
+      <div class="dpad-empty"></div>
+      <button class="dpad-btn" data-dir="UP">&#9650;</button>
+      <div class="dpad-empty"></div>
+      <button class="dpad-btn" data-dir="LEFT">&#9668;</button>
+      <button class="dpad-btn dpad-center" id="btnPauseMobile">&#9646;&#9646;</button>
+      <button class="dpad-btn" data-dir="RIGHT">&#9658;</button>
+      <div class="dpad-empty"></div>
+      <button class="dpad-btn" data-dir="DOWN">&#9660;</button>
+      <button class="dpad-btn dpad-restart" id="btnRestartMobile">&#8635;</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
